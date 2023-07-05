@@ -23,11 +23,9 @@ function themNhanVien() {
   var id = document.getElementById("tknv").value;
   var ten = document.getElementById("name").value;
   var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var ngaylam = document.getElementById("datepicker").value;
+  var address = document.getElementById("address").value;
+  var ngaylam = document.getElementById("ngayLam").value;
   var luong = document.getElementById("luongCB").value;
-  var chuc = document.getElementById("chucvu").value;
-  var giolam = document.getElementById("gioLam").value;
 
   // console.log(id,ten,email,password,ngaylam,luong,chuc,giolam);
 
@@ -60,20 +58,14 @@ function themNhanVien() {
   // password
   isValid &=
     validation.checkEmpty(
-      password,
-      "tbMatKhau",
-      "Mật khẩu không được để trống"
-    ) &&
-    validation.checkPassword(
-      password,
-      "tbMatKhau",
-      "Mật khẩu phải chứa 6 - 8 ký tự (ít nhất 1 ký tự số, 1 ký tự in hoa, 1 ký tự đặc biệt)"
+      address,
+      "tbDiachi",
+      "Địa chỉ không được để trống"
     );
 
   // Ngày làm
   isValid &=
-    validation.checkEmpty(ngaylam, "tbNgay", "Ngày không được để trống") &&
-    validation.checkDate(ngaylam, "tbNgay", "Ngày chưa đúng định dạng");
+    validation.checkEmpty(ngaylam, "tbNgay", "Ngày không được để trống");
 
   // lương cb
   isValid &=
@@ -81,46 +73,40 @@ function themNhanVien() {
     validation.checkLuong(
       luong,
       "tbLuongCB",
-      "Lương CB từ 1.000.000 - 20.000.000"
+      "Lương CB từ 1.000.000 - 6.000.000"
     );
 
-  // chức vụ
-  isValid &= validation.checkEmpty(
-    chuc,
-    "tbChucVu",
-    "Chức vụ không được để trống"
-  );
+  
 
-  //số giờ
-  isValid &=
-    validation.checkEmpty(
-      giolam,
-      "tbGiolam",
-      "Số giờ làm của bạn là bao nhiêu?"
-    ) &&
-    validation.checkTime(
-      giolam,
-      "tbGiolam",
-      "Số giờ làm trong tháng từ 80 - 200 giờ"
-    );
+  // //số giờ
+  // isValid &=
+  //   validation.checkEmpty(
+  //     giolam,
+  //     "tbGiolam",
+  //     "Số giờ làm của bạn là bao nhiêu?"
+  //   ) &&
+  //   validation.checkTime(
+  //     giolam,
+  //     "tbGiolam",
+  //     "Số giờ làm trong tháng từ 80 - 200 giờ"
+  //   );
 
   if (isValid) {
     var nv = new nhanVien(
       id,
       ten,
       email,
-      password,
-      ngaylam,
+      address,
+      Number(ngaylam),
       Number(luong),
-      chuc,
-      Number(giolam)
+     
     );
 
     nv.tinhTL();
     console.log(nv);
     dsnv.themNV(nv);
 
-    nv.xetGioLam();
+    // nv.xetGioLam();
     resetForm();
 
     setLocalStorage();
@@ -138,9 +124,7 @@ function hienThiTable(mang) {
         <td>${nv.tenNV} </td>
         <td>${nv.email} </td>
         <td>${nv.ngaylam} </td>
-        <td>${nv.chucvu} </td>
         <td>${nv.tongluong} </td>
-        <td>${nv.xeploai} </td>
 
 
         <td>
@@ -176,11 +160,9 @@ function xemThongTin(id) {
 
     document.getElementById("name").value = nvFind.tenNV;
     document.getElementById("email").value = nvFind.email;
-    document.getElementById("password").value = nvFind.pass;
-    document.getElementById("datepicker").value = nvFind.ngaylam;
+    document.getElementById("address").value = nvFind.address;
+    document.getElementById("ngayLam").value = nvFind.ngaylam;
     document.getElementById("luongCB").value = nvFind.luong;
-    document.getElementById("chucvu").value = nvFind.chucvu;
-    document.getElementById("gioLam").value = nvFind.giolam;
   }
 }
 
@@ -188,11 +170,9 @@ function capNhatNV() {
   var id = document.getElementById("tknv").value;
   var ten = document.getElementById("name").value;
   var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var ngaylam = document.getElementById("datepicker").value;
+  var address = document.getElementById("address").value;
+  var ngaylam = document.getElementById("ngayLam").value;
   var luong = document.getElementById("luongCB").value;
-  var chuc = document.getElementById("chucvu").value;
-  var giolam = document.getElementById("gioLam").value;
 
   // console.log(id,ten,email,password,ngaylam,luong,chuc,giolam);
 
@@ -200,16 +180,14 @@ function capNhatNV() {
     id,
     ten,
     email,
-    password,
-    ngaylam,
+    address,
+    Number(ngaylam),
     Number(luong),
-    chuc,
-    Number(giolam)
   );
 
   console.log(nv);
   nv.tinhTL();
-  nv.xetGioLam();
+  // nv.xetGioLam();
 
   var result = dsnv.capNhat(nv);
   if (result) {

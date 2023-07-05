@@ -63,18 +63,6 @@ function Validation() {
         return false;
     }
 
-    this.checkPassword = function(value,spanID,message){
-        pattern =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,8}$/;
-        if(value.match(pattern)) {
-            document.getElementById(spanID).innerHTML = "";
-            document.getElementById(spanID).style.display = "none";
-        return true;
-        }
-            document.getElementById(spanID).innerHTML = message;
-            document.getElementById(spanID).style.display = "block";
-        return false;
-    }
-
     this.checkDate = function(value,spanID,message){
         pattern =  /^(0?[1-9]|1[0-2])[\/](0?[1-9]|[12]\d|3[01])[\/](19|20)\d{2}$/;
         if(value.match(pattern)) {
@@ -91,7 +79,7 @@ function Validation() {
 
     this.checkLuong = function(value,spanID,message){
         pattern =  /^[0-9]+$/;
-        if(value.match(pattern) && value >= 1000000 && value <= 20000000 ) {
+        if(value.match(pattern) && value >= 1000000 && value <= 6000000 ) {
             // hợp lệ
             document.getElementById(spanID).innerHTML = "";
             document.getElementById(spanID).style.display = "none";

@@ -43,17 +43,17 @@
         <ul class="list-unstyled components">
 			
 				<li>
-					<a href="#list-item-1">
+					<a href="#list-giangvien">
 						<i class="fa fa-briefcase"></i>
 						Giảng viên
 					</a>
-					<a href="#list-item-2">
+					<a href="#list-hocvien">
 						<i class="fa fa-files-o"></i>
 						Học viên
 					</a>
 				</li>
 				<li>
-					<a href="#list-item-3">
+					<a href="#list-khachhang">
 						<i class="fa fa-link"></i>
 						Khách hàng 
 					</a>
@@ -61,18 +61,6 @@
 			
 			</ul>
 
-        <!-- <div id="list-example list-unstyled components" class="list-group">
-          <a class="list-group-item list-group-item-action " href="#list-item-1"
-            ><i class="fa fa-briefcase"></i>Employee</a
-          >
-          <a class="list-group-item list-group-item-action " href="#list-item-2"
-            ><i class="fa fa-files-o"></i>Student</a
-          >
-          <a class="list-group-item list-group-item-action" href="#list-item-3"
-            ><i class="fa fa-link"></i>Customer</a
-          >
-        </div> -->
-        
 
         <ul class="list-unstyled CTAs">
           <li>
@@ -142,7 +130,7 @@
               data-offset="0"
               class="scrollspy-example"
             >
-              <div class="item" id="list-item-1">
+              <div class="item" id="list-giangvien">
                 <!-- header  -->
                 <div class="card-header myCardHeader">
                   <div class="row">
@@ -171,7 +159,7 @@
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Loại nhân viên"
+                          placeholder="Tìm giảng viên"
                           id="searchName"
                         />
                         <div class="input-group-prepend">
@@ -198,9 +186,8 @@
                         </th>
                         <th>Họ và tên</th>
                         <th>Email</th>
-                        <th>Ngày làm</th>
+                        <th>Số ngày làm</th>
                         <th>Tổng lương</th>
-                        <th>Xếp loại</th>
                         <th><em class="fa fa-cog"></em></th>
                       </tr>
                     </thead>
@@ -209,7 +196,7 @@
                 </div>
               </div>
 
-              <div class="item" id="list-item-2">
+              <div class="item" id="list-hocvien">
                 <div class="card-header myCardHeader">
                   <div class="row">
                     <div class="col-md-6">
@@ -275,7 +262,7 @@
                 </div>
               </div>
 
-              <div class="item" id="list-item-3">
+              <div class="item" id="list-khachhang">
                 <!-- header  -->
                 <div class="card-header myCardHeader">
                   <div class="row">
@@ -474,15 +461,16 @@
                     ></span>
                   </div>
                   <input
-                    type="password"
-                    name="password"
-                    id="password"
+                    type="address"
+                    name="address"
+                    id="address"
                     class="form-control input-sm"
-                    placeholder="Mật khẩu"
+                    placeholder="Địa chỉ"
                   />
                 </div>
-                <span class="sp-thongbao" id="tbMatKhau"></span>
+                <span class="sp-thongbao" id="tbDiachi"></span>
               </div>
+
 
               <div class="form-group">
                 <div class="input-group">
@@ -493,13 +481,12 @@
                   </div>
                   <input
                     type="text"
-                    name="ngaylam"
-                    id="datepicker"
-                    class="form-control"
-                    placeholder="Ngày làm"
+                    name="ngayLam"
+                    id="ngayLam"
+                    class="form-control input-sm"
+                    placeholder="Số ngày làm"
                   />
                 </div>
-
                 <span class="sp-thongbao" id="tbNgay"></span>
               </div>
 
@@ -520,40 +507,8 @@
                 </div>
                 <span class="sp-thongbao" id="tbLuongCB"></span>
               </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="fa fa-briefcase"></i
-                    ></span>
-                  </div>
-                  <select class="form-control" id="chucvu">
-                    <option>Chọn chức vụ</option>
-                    <option>Sếp</option>
-                    <option>Trưởng phòng</option>
-                    <option>Nhân viên</option>
-                  </select>
-                </div>
-
-                <span class="sp-thongbao" id="tbChucVu"></span>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="fa fa-clock-o" aria-hidden="true"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    name="gioLam"
-                    id="gioLam"
-                    class="form-control input-sm"
-                    placeholder="Giờ làm"
-                  />
-                </div>
-                <span class="sp-thongbao" id="tbGiolam"></span>
-              </div>
+              
+             
             </form>
           </div>
 
